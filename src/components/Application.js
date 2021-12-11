@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import DayList from "./DayList";
-import Appointment from "./Appointment";
+import Appointment from "components/Appointment";
 import "styles/Application.scss";
 
 const days = [
@@ -59,6 +59,11 @@ const appointments = [
     time: "4pm",
   }
 ];
+const appointment = appointments.map((appt) => {
+  return (
+    <Appointment key={appt.id} id={appt.id} time={appt.time} interview={appt.interview} />
+  )
+});
 
 
 
@@ -87,6 +92,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
+        {appointment}
         <Appointment key="last" time="5pm" />
       </section>
     </main>

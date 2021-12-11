@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from './Header';
 import Show from './Show';
 import Empty from './Empty';
@@ -6,11 +6,6 @@ import Empty from './Empty';
 import './styles.scss'
 
 export default function Appointment(props) {
-  console.log("props for appointment",props)
-  // const parsedInterviewers = props.interview.interviewers.map((interviewer) => (
-  //   interviewer.name
-    
-  // ));
   return (
   <article className="appointment">
     <Header time={props.time} />
