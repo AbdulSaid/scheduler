@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import InterviewListItem from "./InterviewerListItem";
 
 import "styles/InterviewerList.scss";
 
 export default function InterviewerList(props) {
-  
+  console.log("props for interview list", props)
   const parsedInterviewers = props.interviewers.map((interviewer) => (
     <InterviewListItem
       key={interviewer.id}

@@ -2,12 +2,15 @@ import React from "react";
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
+import Form from "./Form";
+
 import useVisualMode from "hooks/useVisualMode";
 
 import "./styles.scss";
-import Form from "./Form";
+
 
 export default function Appointment(props) {
+  console.log("props for appointment",props)
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "Create";
@@ -28,7 +31,9 @@ export default function Appointment(props) {
       )}
       {mode === CREATE && (
         <Form
-        interviewers={[]}
+        name={props.name}
+        value={props.value}
+        interviewers={props.interviewers}
         onCancel={back}
         />
       )}

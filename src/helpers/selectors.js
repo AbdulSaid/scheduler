@@ -37,4 +37,27 @@ function getInterview(state, interview) {
   
 }
 
-module.exports = { getAppointmentsForDay, getInterview }
+function getInterviewersForDay(state, day) {
+  //... returns an array of Interviewers for that day
+
+  
+  //go through interviewer object and return an array of all the objects with that id
+  const matchInterviewer = (appointments, ids) => {
+    const match = ids.map(id => appointments[id])
+    return match
+  }
+  //make new array to hold the the interviewers ID
+  const interviewersArray = []
+  //go through all the days and get one day object
+  state.days.map(dayObj => {
+    //if the day matches
+    if (dayObj.name === day) {
+      //push the interviewer ID to the array above
+      dayObj.interviewers.forEach(interviewerID => interviewersArray.push(interviewerID))
+    }
+  })
+  // insert all the interviewer and the array of IDs of the interviewers to the function to get the matches
+  return matchInterviewer(state.interviewers,interviewersArray);
+}
+
+module.exports = { getAppointmentsForDay, getInterview, getInterviewersForDay }
