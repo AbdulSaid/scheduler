@@ -1,4 +1,4 @@
-export function getAppointmentsForDay(state, day) {
+function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
   
   //go through appointments object and return an array of all the objects with that id
@@ -19,3 +19,22 @@ export function getAppointmentsForDay(state, day) {
   // insert all the appointments and the array of IDs of the appointment to the function to get the matches
   return matchAppointment(state.appointments,appointmentArray);
 }
+
+function getInterview(state, interview) {
+  // if there isn't a interview object return null
+  if (!interview) {
+    return null;
+  }
+  // get the interview info from the state and interview
+  const interviewerInfo = state.interviewers[interview.interviewer]
+
+  // return the final object
+  const interviewObject = {
+    student: interview.student,
+    interviewer: interviewerInfo
+  }
+  return interviewObject
+  
+}
+
+module.exports = { getAppointmentsForDay, getInterview }
