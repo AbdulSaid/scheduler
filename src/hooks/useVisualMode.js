@@ -15,13 +15,15 @@ export default function useVisualMode(initial) {
   }
 
   const back = function() {
+    console.log('history 18',history)
     if (history.length > 1) {
       const copyHistory = [...history]
       copyHistory.pop();
       setHistory(copyHistory);
       setMode(copyHistory[copyHistory.length-1])
     }
-    
+    console.log('this is history 25',history)
+    console.log("this is mode",mode)
   }
   return {mode, transition, back};
 }
