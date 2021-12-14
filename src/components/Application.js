@@ -34,8 +34,6 @@ export default function Application(props) {
   }, []);
 
   function bookInterview(id, interview) {
-    console.log("what am i logging")
-    console.log('current state',state)
     const appointment = {
       ...state.appointments[id],
       interview: {...interview}
@@ -50,12 +48,11 @@ export default function Application(props) {
         appointments
       })
       return res
-    }).catch(err => console.log(err))
+    })
+    // .catch(err => console.log(err))
   }
 
   const cancelInterview = (id) => {
-    console.log("hittitng cancelInterview")
-    console.log('statte at 44',state)
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -72,7 +69,7 @@ export default function Application(props) {
       })
       return res
     })
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
   };
 
   const appointmentObject = getAppointmentsForDay(state, state.day);
@@ -102,7 +99,8 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={state.days} day={state.day} setDay={setDay} bookInterview={bookInterview} />
+          <DayList days={state.days} day={state.day} setDay={setDay} bookInterview={bookInterview}
+          cancelInterview={cancelInterview} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
