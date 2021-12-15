@@ -19,10 +19,12 @@ export default function Application(props) {
   } = useApplicationData();
 
   const appointmentObject = getAppointmentsForDay(state, state.day);
+  console.log('appointmentObject',appointmentObject)
   const interviewerObject = getInterviewersForDay(state, state.day);
 
   const appointment = appointmentObject.map((appointmentObject) => {
     const interview = getInterview(state, appointmentObject.interview);
+    console.log('interview',interview)
     return (
       <Appointment
         {...appointmentObject}
@@ -45,8 +47,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={state.days} day={state.day} setDay={setDay} bookInterview={bookInterview}
-          cancelInterview={cancelInterview} />
+          <DayList days={state.days} day={state.day} setDay={setDay}/>
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
