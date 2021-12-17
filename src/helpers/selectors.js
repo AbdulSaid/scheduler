@@ -15,6 +15,7 @@ function getAppointmentsForDay(state, day) {
       //push the appointments ID to the array above
       dayObj.appointments.map((appointID) => appointmentArray.push(appointID));
     }
+    return appointmentArray;
   });
   // insert all the appointments and the array of IDs of the appointment to the function to get the matches
   return matchAppointment(state.appointments, appointmentArray);
@@ -55,6 +56,7 @@ function getInterviewersForDay(state, day) {
         interviewersArray.push(interviewerID)
       );
     }
+    return interviewersArray;
   });
   // insert all the interviewer and the array of IDs of the interviewers to the function to get the matches
   return matchInterviewer(state.interviewers, interviewersArray);
